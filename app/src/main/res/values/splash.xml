@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MoviesApp.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/filmify_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.MoviesApp</item>
+    </style>
+</resources>
