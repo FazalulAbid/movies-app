@@ -18,11 +18,13 @@ fun StandardScaffold(
 ) {
     Scaffold(
         bottomBar = {
-            NavigationBar {
-                StandardBottomBar(
-                    onNavigate = onNavigate,
-                    navBackStackEntry = navBackStackEntry
-                )
+            if (showBottomBar) {
+                NavigationBar {
+                    StandardBottomBar(
+                        onNavigate = onNavigate,
+                        navBackStackEntry = navBackStackEntry
+                    )
+                }
             }
         }
     ) {

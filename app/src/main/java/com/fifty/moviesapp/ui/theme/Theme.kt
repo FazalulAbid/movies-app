@@ -10,6 +10,7 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -58,12 +59,15 @@ fun MoviesAppTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         val systemUiController = rememberSystemUiController()
+        val useDarkIcons = !darkTheme
         SideEffect {
 //        val window = (view.context as Activity).window
 //        window.statusBarColor = PrimaryDark.toArgb()
 //        WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
             systemUiController.setSystemBarsColor(
-                color = if (darkTheme) PrimaryDark else LightGray
+                color = Color.Transparent,
+                darkIcons = useDarkIcons,
+                isNavigationBarContrastEnforced = false
             )
         }
     }
