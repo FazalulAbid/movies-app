@@ -18,9 +18,9 @@ import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80,
+    primary = PrimaryPink,
+    secondary = PrimaryYellow,
+    tertiary = PrimaryGreen,
     background = PrimaryDark
 )
 
