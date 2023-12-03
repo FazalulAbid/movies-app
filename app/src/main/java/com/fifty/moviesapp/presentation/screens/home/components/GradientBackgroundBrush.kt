@@ -1,4 +1,4 @@
-package com.fifty.moviesapp.screens.home.components
+package com.fifty.moviesapp.presentation.screens.home.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.geometry.Offset

@@ -1,4 +1,4 @@
-package com.fifty.moviesapp.ui.theme
+package com.fifty.moviesapp.presentation.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
