@@ -1,7 +1,6 @@
 package com.fifty.moviesapp.presentation.screens.commons
 
 import android.annotation.SuppressLint
-import android.widget.Toast
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -33,9 +32,9 @@ import androidx.navigation.NavOptions
 import androidx.navigation.navOptions
 import com.fifty.moviesapp.R
 import com.fifty.moviesapp.domain.model.BottomNavItem
+import com.fifty.moviesapp.presentation.ui.theme.SizeSmall
 import com.fifty.moviesapp.presentation.utils.NoRippleInteractionSource
 import com.fifty.moviesapp.presentation.utils.Screen
-import com.fifty.moviesapp.presentation.ui.theme.SizeSmall
 
 @SuppressLint("AutoboxingStateCreation")
 @OptIn(ExperimentalMaterial3Api::class)

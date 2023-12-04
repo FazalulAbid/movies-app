@@ -35,8 +35,11 @@ class MainActivity : ComponentActivity() {
                     StandardScaffold(
                         onNavigate = navController::navigate,
                         navBackStackEntry = navBackStackEntry
-                    ) {
-                        Navigation(navController = navController)
+                    ) { paddingValues ->
+                        Navigation(
+                            navController = navController,
+                            paddingValues = paddingValues
+                        )
                     }
                 }
             }

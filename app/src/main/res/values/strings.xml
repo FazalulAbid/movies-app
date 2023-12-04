@@ -3,4 +3,6 @@
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="profile">Profile</string>
+    <string name="there">there</string>
+    <string name="greeting_text">Hey</string>
 </resources>

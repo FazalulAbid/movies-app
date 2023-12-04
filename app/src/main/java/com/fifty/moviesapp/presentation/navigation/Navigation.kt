@@ -1,5 +1,6 @@
 package com.fifty.moviesapp.presentation.navigation
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -11,7 +12,8 @@ import com.fifty.moviesapp.presentation.screens.profile.ProfileScreen
 
 @Composable
 fun Navigation(
-    navController: NavHostController
+    navController: NavHostController,
+    paddingValues: PaddingValues
 ) {
     NavHost(
         navController = navController,
@@ -22,7 +24,9 @@ fun Navigation(
         popExitTransition = { popExitTransitionHorizontal }
     ) {
         composable(Screen.HomeScreen.route) {
-            HomeScreen()
+            HomeScreen(
+                paddingValues = paddingValues
+            )
         }
         composable(Screen.FavoriteScreen.route) {
             FavoriteScreen()
