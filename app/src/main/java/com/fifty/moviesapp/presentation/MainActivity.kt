@@ -14,12 +14,18 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import coil.ImageLoader
 import com.fifty.moviesapp.core_framework.utils.Constants.SPLASHSCREEN_DELAY
 import com.fifty.moviesapp.presentation.navigation.Navigation
 import com.fifty.moviesapp.presentation.screens.commons.StandardScaffold
 import com.fifty.moviesapp.presentation.ui.theme.MoviesAppTheme
+import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    private lateinit var imageLoader: ImageLoader
+
     override fun onCreate(savedInstanceState: Bundle?) {
         initializeSplashScreen()
         super.onCreate(savedInstanceState)
@@ -38,7 +44,8 @@ class MainActivity : ComponentActivity() {
                     ) { paddingValues ->
                         Navigation(
                             navController = navController,
-                            paddingValues = paddingValues
+                            paddingValues = paddingValues,
+                            imageLoader = imageLoader
                         )
                     }
                 }
