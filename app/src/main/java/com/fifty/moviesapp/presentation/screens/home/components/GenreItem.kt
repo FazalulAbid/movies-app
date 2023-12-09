@@ -25,9 +25,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.times
 import com.fifty.moviesapp.domain.model.GenreItem
-import com.fifty.moviesapp.presentation.ui.theme.SizeExtraSmall
-import com.fifty.moviesapp.presentation.ui.theme.SizeMedium
-import com.fifty.moviesapp.presentation.ui.theme.SizeSmall
+import com.fifty.moviesapp.presentation.ui.theme.SizeSmall8
+import com.fifty.moviesapp.presentation.ui.theme.SizeStandard16
 
 @Composable
 fun GenresItem(
@@ -73,12 +72,12 @@ fun GenresItem(
     ) {
         Box(
             modifier = Modifier
-                .offset(x = -(SizeMedium - lineLength.value * SizeMedium))
+                .offset(x = -(SizeStandard16 - lineLength.value * SizeStandard16))
                 .background(
                     color = animatedSelectedCircleColor,
                     shape = MaterialTheme.shapes.medium
                 )
-                .size(SizeMedium)
+                .size(SizeStandard16)
         )
         Text(
             text = "Action",
@@ -87,7 +86,7 @@ fun GenresItem(
                 color = animatedTextColor,
             ),
             modifier = Modifier
-                .padding(end = SizeMedium, top = SizeSmall, bottom = SizeSmall)
+                .padding(end = SizeStandard16, top = SizeSmall8, bottom = SizeSmall8)
         )
     }
 }

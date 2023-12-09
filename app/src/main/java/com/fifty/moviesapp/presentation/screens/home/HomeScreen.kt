@@ -25,7 +25,9 @@ import com.fifty.moviesapp.domain.model.GenreItem
 import com.fifty.moviesapp.presentation.screens.home.components.AutoSlidingCarousal
 import com.fifty.moviesapp.presentation.screens.home.components.DashboardGreetingText
 import com.fifty.moviesapp.presentation.screens.home.components.GenresItem
-import com.fifty.moviesapp.presentation.ui.theme.SizeMedium
+import com.fifty.moviesapp.presentation.screens.home.components.TrendingMoviesSection
+import com.fifty.moviesapp.presentation.ui.theme.SizeStandard16
+import com.fifty.moviesapp.presentation.ui.theme.StandardScreenPadding
 
 @Composable
 fun HomeScreen(
@@ -59,18 +61,18 @@ fun HomeScreen(
                 }
             }
         )
-        Spacer(modifier = Modifier.height(SizeMedium))
+        Spacer(modifier = Modifier.height(SizeStandard16))
 
         // Sliding Banners
         AutoSlidingCarousal(
             imageLoader = imageLoader
         )
-        Spacer(modifier = Modifier.height(SizeMedium))
+        Spacer(modifier = Modifier.height(SizeStandard16))
 
         // Genres List
         LazyRow(
-            contentPadding = PaddingValues(SizeMedium),
-            horizontalArrangement = Arrangement.spacedBy(SizeMedium)
+            contentPadding = PaddingValues(StandardScreenPadding),
+            horizontalArrangement = Arrangement.spacedBy(SizeStandard16)
         ) {
             items(10) {
                 GenresItem(
@@ -82,7 +84,11 @@ fun HomeScreen(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(SizeMedium))
+
+        //Trending Movies
+        TrendingMoviesSection(
+            imageLoader = imageLoader
+        )
     }
 }
 

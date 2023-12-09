@@ -15,8 +15,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.fifty.moviesapp.R
-import com.fifty.moviesapp.presentation.ui.theme.SizeLarge
-import com.fifty.moviesapp.presentation.ui.theme.SizeMedium
+import com.fifty.moviesapp.presentation.ui.theme.SizeLarge24
+import com.fifty.moviesapp.presentation.ui.theme.SizeStandard16
 
 @Composable
 fun DashboardGreetingText(
@@ -35,9 +35,9 @@ fun DashboardGreetingText(
                 color = MaterialTheme.colorScheme.onBackground
             )
         )
-        Spacer(modifier = Modifier.width(SizeMedium))
+        Spacer(modifier = Modifier.width(SizeStandard16))
         Image(
-            modifier = Modifier.size(SizeLarge),
+            modifier = Modifier.size(SizeLarge24),
             painter = painterResource(id = R.drawable.ic_vector_wave),
             contentDescription = null
         )

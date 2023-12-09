@@ -23,7 +23,6 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -32,7 +31,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.navOptions
 import com.fifty.moviesapp.R
 import com.fifty.moviesapp.domain.model.BottomNavItem
-import com.fifty.moviesapp.presentation.ui.theme.SizeSmall
+import com.fifty.moviesapp.presentation.ui.theme.SizeSmall8
 import com.fifty.moviesapp.presentation.utils.NoRippleInteractionSource
 import com.fifty.moviesapp.presentation.utils.Screen
 
@@ -109,7 +108,7 @@ fun StandardBottomBar(
                                 }
                             },
                             modifier = Modifier
-                                .padding(SizeSmall)
+                                .padding(SizeSmall8)
                                 .drawBehind {
                                     if (lineLength.value > 0f) {
                                         drawLine(
