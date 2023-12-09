@@ -19,17 +19,19 @@ import com.fifty.moviesapp.core_framework.utils.Constants.SPLASHSCREEN_DELAY
 import com.fifty.moviesapp.presentation.navigation.Navigation
 import com.fifty.moviesapp.presentation.screens.commons.StandardScaffold
 import com.fifty.moviesapp.presentation.ui.theme.MoviesAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     @Inject
-    private lateinit var imageLoader: ImageLoader
+    lateinit var imageLoader: ImageLoader
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initializeSplashScreen()
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             MoviesAppTheme {
                 Surface(

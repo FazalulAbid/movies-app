@@ -45,7 +45,6 @@ fun StandardBottomBar(
     showBottomBar: Boolean = true,
     selectedColor: Color = MaterialTheme.colorScheme.primary
 ) {
-    val context = LocalContext.current
     val bottomNavItems: List<BottomNavItem> = listOf(
         BottomNavItem(
             route = Screen.HomeScreen.route,

@@ -8,3 +8,5 @@ val SizeSmall = 8.dp
 val SizeMedium = 16.dp
 val SizeLarge = 24.dp
 val SizeExtraLarge = 32.dp
+val SizeExtraExtraLarge = 48.dp
+val SizeExtraExtraExtraLarge = 56.dp

@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
@@ -22,17 +21,15 @@ import com.fifty.moviesapp.presentation.ui.theme.SizeMedium
 @Composable
 fun DashboardGreetingText(
     modifier: Modifier = Modifier,
-    name: String? = null,
-    greetingText: String
+    text: String
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = modifier,
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = ("$greetingText, ") + (name ?: stringResource(R.string.there)) + "!",
+            text = stringResource(id = R.string.greeting_text) + ", $text",
             style = MaterialTheme.typography.titleLarge.copy(
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onBackground

@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Movies App</string>
+
+    // Home Screen
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="profile">Profile</string>
     <string name="there">there</string>
     <string name="greeting_text">Hey</string>
+    <string name="search_movies_or_shows">Search Movies or Shows</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.fifty.moviesapp.presentation.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -11,20 +10,21 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
-private val DarkColorScheme = darkColorScheme(
+private val darkColorScheme = darkColorScheme(
     primary = PrimaryPink,
     secondary = PrimaryYellow,
     tertiary = PrimaryGreen,
-    background = PrimaryDark
+    background = PrimaryDark,
+    onSurface = TextColorEmphasis,
+    surface = PrimaryDarkVariant,
+    onBackground = Color.White,
 )
 
-private val LightColorScheme = lightColorScheme(
+private val lightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40
@@ -53,8 +53,8 @@ fun MoviesAppTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> darkColorScheme
+        else -> lightColorScheme
     }
     val view = LocalView.current
     if (!view.isInEditMode) {
@@ -65,7 +65,7 @@ fun MoviesAppTheme(
 //        window.statusBarColor = PrimaryDark.toArgb()
 //        WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
             systemUiController.setSystemBarsColor(
-                color = Color.Transparent,
+                color = darkColorScheme.background,
                 darkIcons = useDarkIcons,
                 isNavigationBarContrastEnforced = false
             )
