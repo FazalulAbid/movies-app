@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import coil.ImageLoader
 import com.fifty.moviesapp.R
-import com.fifty.moviesapp.core_framework.presentation.components.SecondaryHeader
+import com.fifty.moviesapp.presentation.components.SecondaryHeader
 import com.fifty.moviesapp.presentation.ui.theme.SizeSmall8
 import com.fifty.moviesapp.presentation.ui.theme.SizeStandard16
 import com.fifty.moviesapp.presentation.ui.theme.StandardScreenPadding

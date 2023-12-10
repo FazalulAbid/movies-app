@@ -1,27 +1,32 @@
-package com.fifty.moviesapp.presentation.screens.commons
+package com.fifty.moviesapp.presentation.components
 
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.NavigationBar
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavOptions
+import com.fifty.moviesapp.core_framework.presentation.utils.topappbar.AppBarState
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StandardScaffold(
     onNavigate: (route: String, navOptions: NavOptions) -> Unit,
     navBackStackEntry: NavBackStackEntry?,
+    snackbarHostState: SnackbarHostState,
     showBottomBar: Boolean = true,
+    appBarState: AppBarState,
     content: @Composable (paddingValues: PaddingValues) -> Unit,
 ) {
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-                 TopAppBar(title = { Text(text = "Hello") })
+            StandardAppBar(
+                modifier = Modifier.fillMaxWidth(),
+                appBarState = appBarState
+            )
         },
         bottomBar = {
             StandardBottomBar(

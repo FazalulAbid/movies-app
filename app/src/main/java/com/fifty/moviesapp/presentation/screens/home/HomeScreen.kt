@@ -8,59 +8,52 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import coil.ImageLoader
-import com.fifty.moviesapp.R
-import com.fifty.moviesapp.core_framework.presentation.components.StandardAppBar
+import com.fifty.moviesapp.core_framework.presentation.utils.topappbar.AppBarState
 import com.fifty.moviesapp.domain.model.GenreItem
+import com.fifty.moviesapp.presentation.screens.favorites.Favorites
 import com.fifty.moviesapp.presentation.screens.home.components.AutoSlidingCarousal
-import com.fifty.moviesapp.presentation.screens.home.components.DashboardGreetingText
 import com.fifty.moviesapp.presentation.screens.home.components.GenresItem
 import com.fifty.moviesapp.presentation.screens.home.components.TrendingMoviesSection
 import com.fifty.moviesapp.presentation.ui.theme.SizeStandard16
 import com.fifty.moviesapp.presentation.ui.theme.StandardScreenPadding
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @Composable
 fun HomeScreen(
     paddingValues: PaddingValues,
-    imageLoader: ImageLoader
+    imageLoader: ImageLoader,
+    appBarState: AppBarState,
+    modifier: Modifier = Modifier,
+    onNavigate: (String) -> Unit
 ) {
+    appBarState.setActionBarTitle("Hey, There!\uD83D\uDC4B")
+    val screen = appBarState.currentScreen as? Home
+    LaunchedEffect(key1 = screen) {
+        screen?.buttons?.onEach { button ->
+            when (button) {
+                Home.AppBarIcons.Search -> onNavigate(Favorites.route)
+            }
+        }?.launchIn(this)
+    }
+
     // Pending - Move to ViewModel
     val isSelectedValue = remember {
         mutableIntStateOf(0)
     }
     Column(
-        Modifier
+        modifier
             .fillMaxSize()
             .padding(paddingValues),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        StandardAppBar(
-            title = {
-                // Greeting Text
-                DashboardGreetingText(
-                    text = stringResource(id = R.string.there)
-                )
-            },
-            navActions = {
-                IconButton(onClick = { }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_search),
-                        contentDescription = stringResource(R.string.search_movies_or_shows),
-                        tint = MaterialTheme.colorScheme.onBackground
-                    )
-                }
-            }
-        )
         Spacer(modifier = Modifier.height(SizeStandard16))
 
         // Sliding Banners

@@ -1,4 +1,4 @@
-package com.fifty.moviesapp.core_framework.presentation.components
+package com.fifty.moviesapp.presentation.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
@@ -37,7 +36,8 @@ fun SecondaryHeader(
     style: TextStyle = MaterialTheme.typography.titleLarge,
     fontWeight: FontWeight = FontWeight.Medium,
     maxLines: Int = 1,
-    moreOptionPainter: Painter = painterResource(id = R.drawable.ic_arrow_forward),
+    moreOptionPainter: Painter = painterResource(id = R.drawable.ic_arrow_up_right),
+    showTextAndIcon: Boolean = false,
     moreOptionText: String?,
     moreOptionIconColor: Color = MaterialTheme.colorScheme.primary,
     onMoreOptionClick: () -> Unit = {}
@@ -62,35 +62,38 @@ fun SecondaryHeader(
         )
         Spacer(modifier = Modifier.width(SizeStandard16))
         moreOptionText?.let { text ->
-//            Row(
-//                modifier = Modifier
-//                    .clip(CircleShape)
-//                    .clickable { onMoreOptionClick() }
-//                    .padding(vertical = SizeMini4, horizontal = SizeSmall8),
-//                verticalAlignment = Alignment.CenterVertically,
-//                horizontalArrangement = Arrangement.End
-//            ) {
-//                Text(
-//                    text = text,
-//                    style = MaterialTheme.typography.labelMedium.copy(
-//                        color = MaterialTheme.colorScheme.primary
-//                    )
-//                )
-//                Spacer(modifier = Modifier.width(SizeSmall8))
-//                Icon(
-//                    painter = moreOptionPainter,
-//                    contentDescription = stringResource(id = R.string.show_more),
-//                    tint = moreOptionIconColor
-//                )
-//            }
-            IconButton(
-                onClick = { onMoreOptionClick() }
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_arrow_up_right),
-                    contentDescription = text,
-                    tint = moreOptionIconColor
-                )
+            if (showTextAndIcon) {
+                Row(
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .clickable { onMoreOptionClick() }
+                        .padding(vertical = SizeMini4, horizontal = SizeSmall8),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    Text(
+                        text = text,
+                        style = MaterialTheme.typography.labelMedium.copy(
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    )
+                    Spacer(modifier = Modifier.width(SizeSmall8))
+                    Icon(
+                        painter = moreOptionPainter,
+                        contentDescription = stringResource(id = R.string.show_more),
+                        tint = moreOptionIconColor
+                    )
+                }
+            } else {
+                IconButton(
+                    onClick = { onMoreOptionClick() }
+                ) {
+                    Icon(
+                        painter = moreOptionPainter,
+                        contentDescription = text,
+                        tint = moreOptionIconColor
+                    )
+                }
             }
         }
     }

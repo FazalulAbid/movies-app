@@ -120,7 +120,7 @@ val Typography = Typography(
     // Title
     titleLarge = TextStyle(
         fontFamily = circularStd,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 18.sp, // 22 Default
         lineHeight = 28.sp,
         letterSpacing = 0.0.sp

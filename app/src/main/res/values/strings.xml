@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Movies App</string>
 
+    // Core Application Framework
+    <string name="accessibility_overflow">Accebility Overflow</string>
+
     // Home Screen
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>

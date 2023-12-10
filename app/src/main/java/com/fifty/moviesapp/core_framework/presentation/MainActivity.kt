@@ -1,4 +1,4 @@
-package com.fifty.moviesapp.presentation
+package com.fifty.moviesapp.core_framework.presentation
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,17 +7,20 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import coil.ImageLoader
-import com.fifty.moviesapp.core_framework.utils.Constants.SPLASHSCREEN_DELAY
+import com.fifty.moviesapp.core_framework.presentation.utils.topappbar.rememberAppBarState
+import com.fifty.moviesapp.core_framework.util.Constants.SPLASHSCREEN_DELAY
+import com.fifty.moviesapp.presentation.components.StandardScaffold
 import com.fifty.moviesapp.presentation.navigation.Navigation
-import com.fifty.moviesapp.presentation.screens.commons.StandardScaffold
 import com.fifty.moviesapp.presentation.ui.theme.MoviesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -38,16 +41,23 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    val snackBarHostState = remember { SnackbarHostState() }
                     val navController = rememberNavController()
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
+                    val appBarState = rememberAppBarState(navController)
+
                     StandardScaffold(
                         onNavigate = navController::navigate,
-                        navBackStackEntry = navBackStackEntry
+                        navBackStackEntry = navBackStackEntry,
+                        snackbarHostState = snackBarHostState,
+                        appBarState = appBarState
                     ) { paddingValues ->
                         Navigation(
                             navController = navController,
                             paddingValues = paddingValues,
-                            imageLoader = imageLoader
+                            imageLoader = imageLoader,
+                            appBarState = appBarState,
+                            snackbarHostState = snackBarHostState
                         )
                     }
                 }

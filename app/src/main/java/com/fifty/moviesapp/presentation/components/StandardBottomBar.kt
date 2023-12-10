@@ -1,4 +1,4 @@
-package com.fifty.moviesapp.presentation.screens.commons
+package com.fifty.moviesapp.presentation.components
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.core.animateDpAsState
@@ -31,9 +31,11 @@ import androidx.navigation.NavOptions
 import androidx.navigation.navOptions
 import com.fifty.moviesapp.R
 import com.fifty.moviesapp.domain.model.BottomNavItem
+import com.fifty.moviesapp.presentation.screens.favorites.Favorites
+import com.fifty.moviesapp.presentation.screens.home.Home
+import com.fifty.moviesapp.presentation.screens.profile.Profile
 import com.fifty.moviesapp.presentation.ui.theme.SizeSmall8
 import com.fifty.moviesapp.presentation.utils.NoRippleInteractionSource
-import com.fifty.moviesapp.presentation.utils.Screen
 
 @SuppressLint("AutoboxingStateCreation")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +48,7 @@ fun StandardBottomBar(
 ) {
     val bottomNavItems: List<BottomNavItem> = listOf(
         BottomNavItem(
-            route = Screen.HomeScreen.route,
+            route = Home.route,
             title = stringResource(R.string.home),
             selectedIcon = painterResource(id = R.drawable.ic_home_filled),
             unselectedIcon = painterResource(id = R.drawable.ic_home),
@@ -54,7 +56,7 @@ fun StandardBottomBar(
             hasNews = false
         ),
         BottomNavItem(
-            route = Screen.FavoriteScreen.route,
+            route = Favorites.route,
             title = stringResource(R.string.favorite),
             selectedIcon = painterResource(id = R.drawable.ic_favorite_filled),
             unselectedIcon = painterResource(id = R.drawable.ic_favorite),
@@ -62,7 +64,7 @@ fun StandardBottomBar(
             hasNews = false
         ),
         BottomNavItem(
-            route = Screen.ProfileScreen.route,
+            route = Profile.route,
             title = stringResource(R.string.profile),
             selectedIcon = painterResource(id = R.drawable.ic_person_filled),
             unselectedIcon = painterResource(id = R.drawable.ic_person),
@@ -89,7 +91,7 @@ fun StandardBottomBar(
                     onClick = {
                         selectedItemIndex.value = index
                         onNavigate(item.route, navOptions {
-                            popUpTo(Screen.HomeScreen.route) {
+                            popUpTo(Home.route) {
                                 saveState = true
                             }
                             launchSingleTop = true
